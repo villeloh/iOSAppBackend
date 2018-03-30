@@ -36,20 +36,20 @@ app.listen(8000, function () {
 
 // this approach seems awkward, but we cannot return the 'names' of objects...
 const categories = {};
-const categoryNames = {};
+const categoryNames = [];
 
 const dogs = [new ImageObj('muppe', 'url...'), new ImageObj('Musti', 'url...')];
 const cats = [new ImageObj('Mirre', 'url...'),new ImageObj('Bella', 'url...')];
 const turtles = [new ImageObj('Kille', 'url...'), new ImageObj('Kalle', 'url...')];
 
 categories['0'] = dogs;
-categoryNames['0'] = 'dogs';
+categoryNames[0] = 'dogs';
 
 categories['1'] = cats;
-categoryNames['1'] = 'cats';
+categoryNames[1] = 'cats';
 
 categories['2'] = turtles;
-categoryNames['2'] = 'turtles';
+categoryNames[2] = 'turtles';
 
 // USED REST ENDPOINTS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -76,8 +76,9 @@ app.post('/', function(req, res) {
 // will probably only be needed for the labs (users posting new, empty categories 'breaks' the ML model)
 app.post('/newCategory', function(req, res) {
 
-  const newCategory = req.body.category;
-  // TODO: make it do something...
+  const newCategory = req.body.newCategory;
+  categoryNames.push(newCategory);
+  console.log("categoryNames: " + categoryNames)
 })
 
 // LIKELY TO BE UNNECESSARY xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

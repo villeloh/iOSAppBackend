@@ -28,7 +28,8 @@ app.use(bodyParser.json({ limit: '500mb' }))
 const imageObjModule = require('./imageObj.js');
 const ImageObj = imageObjModule.ImageObj;
 
-const ROOT_IMAGE_FOLDER = "/Users/iosdev/Desktop/iOSAppBackend/Images/";
+// const ROOT_IMAGE_FOLDER = "/Users/iosdev/Desktop/iOSAppBackend/Images/";
+const ROOT_IMAGE_FOLDER = "https://ios-app-backend.herokuapp.com/Images/";
 
 app.listen(PORT, function () {
   console.log('Listening on port 5000 ...')

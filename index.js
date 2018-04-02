@@ -10,6 +10,8 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const randomString = require('randomstring');
 
+const PORT = process.env.PORT || 5000;
+
 const app = express();
 app.use(bodyParser({limit: '500mb'}));
 
@@ -28,8 +30,8 @@ const ImageObj = imageObjModule.ImageObj;
 
 const ROOT_IMAGE_FOLDER = "/Users/iosdev/Desktop/iOSAppBackend/Images/";
 
-app.listen(8000, function () {
-  console.log('Listening on port 8000 ...')
+app.listen(PORT, function () {
+  console.log('Listening on port 5000 ...')
 })
 
 // DUMMY DATA xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

@@ -7,7 +7,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const fs = require('fs');
+// const fs = require('fs'); // used for saving the file locally
 const randomString = require('randomstring');
 const aws = require('aws-sdk');
 
@@ -85,7 +85,6 @@ app.post('/', function(req, res) {
     ACL: 'public-read'
   };
 
-  // NOTE: could need the signing before this!
   s3.putObject(s3Params, function(err, data){
     if (err) { 
       console.log(err);
@@ -95,6 +94,7 @@ app.post('/', function(req, res) {
     }
   });
 
+  // saving the file locally:
   /*
   fs.writeFile(ROOT_IMAGE_FOLDER + uniqueFileName, fileDataDecoded, function(err) {
     
